@@ -1,0 +1,26 @@
+﻿@model MemeTokenHub.Backoffce.Models.MemePageModel
+
+<div>
+    @Model.Name
+</div>
+@if (Model.About != null)
+{
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">About @Model.About.Title</div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p> @Model.About.SubTitle</p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <p> @Model.About.Description</p>
+        </div>
+    </div>
+}

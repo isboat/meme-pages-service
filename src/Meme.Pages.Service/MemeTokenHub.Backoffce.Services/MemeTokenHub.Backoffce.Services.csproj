@@ -7,9 +7,9 @@
   <ItemGroup>
     <PackageReference Include="BCrypt.Net" Version="0.1.0" />
     <PackageReference Include="MailKit" Version="4.7.0" />
+    <PackageReference Include="Meme.Domain.Models" Version="1.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MemeTokenHub.Backoffce.Models\MemeTokenHub.Backoffce.Models.csproj" />
     <ProjectReference Include="..\MemeTokenHub.Backoffce.Mongo\MemeTokenHub.Backoffce.Mongo.csproj" />
   </ItemGroup>
 </Project>

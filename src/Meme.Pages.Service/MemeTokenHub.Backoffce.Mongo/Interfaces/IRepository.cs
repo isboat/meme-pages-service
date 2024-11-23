@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using MemeTokenHub.Backoffce.Models;
+using Meme.Domain.Models;
 
 namespace MemeTokenHub.Backoffce.Mongo.Interfaces
 {

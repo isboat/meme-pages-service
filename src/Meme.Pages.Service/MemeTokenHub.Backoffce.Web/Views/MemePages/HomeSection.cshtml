@@ -1,0 +1,20 @@
+﻿@model Meme.Domain.Models.MemePageModel
+@{
+	var homeSection = Model.HomeSection;
+}
+<section id="welcome-hero" class="welcome-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="header-text">
+					<h2>@homeSection.Tagline hi <span>,</span> i am <br> @Model.Name <br> star <span>.</span>   </h2>
+					<p>
+						@homeSection.Description THE Pepe THAT LIVES ON SOLANA
+					</p>
+					<a href="@Model.BuyUrl">buy now</a>
+				</div><!--/.header-text-->
+			</div><!--/.col-->
+		</div><!-- /.row-->
+	</div><!-- /.container-->
+
+</section><!--/.welcome-hero-->

@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
-using System.Linq.Expressions;
-using MemeTokenHub.Backoffce.Models;
 using MemeTokenHub.Backoffce.Mongo.Interfaces;
 using MongoDB.Driver;
+using Meme.Domain.Models;
 
 namespace MemeTokenHub.Backoffce.Mongo
 {

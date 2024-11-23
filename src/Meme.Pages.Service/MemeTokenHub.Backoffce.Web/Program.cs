@@ -1,4 +1,4 @@
-using MemeTokenHub.Backoffce.Models;
+using Meme.Domain.Models;
 using MemeTokenHub.Backoffce.Mongo;
 using MemeTokenHub.Backoffce.Mongo.Interfaces;
 using MemeTokenHub.Backoffce.Services;

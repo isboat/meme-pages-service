@@ -1,0 +1,18 @@
+﻿
+	@{
+		var title = ViewData["Title"];
+		if (title == null) title = "Meme Token Hub";
+
+		var isDashboardValue = ViewData["isDashboard"];
+		var isDashboard = isDashboardValue != null && isDashboardValue.ToString() == "true";
+	}
+
+
+        @if (isDashboard)
+        {
+            <partial name="DashboardFooter.cshtml" />
+        }
+        else
+        {
+            <partial name="MemePageFooter.cshtml" />
+        }

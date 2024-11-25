@@ -1,31 +1,4 @@
-﻿@* <!DOCTYPE html>
-<html>
-<head>
-    <partial name="_PageHeadElement"/>
-    
-    @RenderSection("Styles", required: false)
-    @RenderSection("HeadScripts", required: false)
-</head>
-<body>
-    <div class="main-content">                
-        <!-- Page content -->
-        <div class="page-content">
-            <div class="page-content-box">
-                <!-- Page content -->
-                @RenderBody()
-            </div>
-        </div>
-    </div>
-    
-    <partial name="_ThemeScripts" />
-
-    @RenderSection("Scripts", required: false)
-</body>
-</html>
- *@
-
-
-<!doctype html>
+﻿<!doctype html>
 <html class="no-js" lang="en">
 
 <head>
@@ -38,82 +11,30 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 
 	<!-- title of site -->
-	<title>Browny</title>
+	@{
+		var title = ViewData["Title"];
+		if (title == null) title = "Meme Token Hub";
 
-	<!-- For favicon png -->
-	<link rel="shortcut icon" type="image/icon" href="~/logo/favicon.png" />
-
-	<!--font-awesome.min.css-->
-	<link rel="stylesheet" href="~/css/font-awesome.min.css">
-
-	<!--flat icon css-->
-	<link rel="stylesheet" href="~/css/flaticon.css">
-
-	<!--animate.css-->
-	<link rel="stylesheet" href="~/css/animate.css">
-
-	<!--owl.carousel.css-->
-	<link rel="stylesheet" href="~/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="~/css/owl.theme.default.min.css">
-
-	<!--bootstrap.min.css-->
-	<link rel="stylesheet" href="~/css/bootstrap.min.css">
-
-	<!-- bootsnav -->
-	<link rel="stylesheet" href="~/css/bootsnav.css">
-
-	<!--style.css-->
-	<link rel="stylesheet" href="~/css/style.css">
-
-	<!--responsive.css-->
-	<link rel="stylesheet" href="~/css/responsive.css">
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+		var isDashboardValue = ViewData["isDashboard"];
+		var isDashboard = isDashboardValue != null && isDashboardValue.ToString() == "true";
+	}
+	<title>@title</title>
+	@if(isDashboard)
+	{
+		<partial name="DashboardHeader.cshtml" />
+	} else
+	{
+		<partial name="MemePageHeader.cshtml" />
+	}
 
 </head>
 
 <body>
-	<!--[if lte IE 9]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
-	@RenderBody()
+@RenderBody()
 
-	<script src="~/js/jquery.js"></script>
-
-	<!--modernizr.min.js-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
-	<!--bootstrap.min.js-->
-	<script src="~/js/bootstrap.min.js"></script>
-
-	<!-- bootsnav js -->
-	<script src="~/js/bootsnav.js"></script>
-
-	<!-- jquery.sticky.js -->
-	<script src="~/js/jquery.sticky.js"></script>
-
-	<!-- for progress bar start-->
-	<!-- progressbar js -->
-	<script src="~/js/progressbar.js"></script>
-
-	<!-- appear js -->
-	<script src="~/js/jquery.appear.js"></script>
-
-	<!-- for progress bar end -->
-	<!--owl.carousel.js-->
-	<script src="~/js/owl.carousel.min.js"></script>
-
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
-
-	<!--Custom JS-->
-	<script src="~/js/custom.js"></script>
+    <div>
+            <partial name="Footer.cshtml" />
+	</div>
 
 </body>
 

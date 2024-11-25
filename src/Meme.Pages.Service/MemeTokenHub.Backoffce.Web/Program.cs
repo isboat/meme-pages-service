@@ -3,7 +3,6 @@ using MemeTokenHub.Backoffce.Mongo;
 using MemeTokenHub.Backoffce.Mongo.Interfaces;
 using MemeTokenHub.Backoffce.Services;
 using MemeTokenHub.Backoffce.Services.Interfaces;
-using Partners.Management.Web.Services;
 
 namespace Partners.Management.Web
 {

@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/src/Meme.Pages.Service/MemeTokenHub.Service.Web/appsettings.Development.json
+/src/Meme.Pages.Service/MemeTokenHub.Service.Web/appsettings.json

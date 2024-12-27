@@ -6,6 +6,8 @@
 
         public static string MemePagesCollection = "MemePages";
 
+        public static string ProfileCollection = "Profiles";
+
         public static string UserCollection = "Users";
     }
 }

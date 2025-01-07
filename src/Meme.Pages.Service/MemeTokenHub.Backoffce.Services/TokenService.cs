@@ -15,13 +15,39 @@ namespace MemeTokenHub.Backoffce.Services
         public async Task<IEnumerable<TokenDataModel>?> GetClaimedTokensAsync()
         {
             var cacheData = await _cacheService.GetItemsFromList<TokenDataModel>() ?? [];
+            if (!cacheData.Any()) 
+            { 
+                cacheData.Add(new TokenDataModel {  Name = "Savior Coin", Description = "For saving people"});
+                cacheData.Add(new TokenDataModel {  Name = "Trump Coin", Description = "Dummy coin for dummy people"});
+            }
+
             return cacheData;
             //return cacheData.Where(x => x.CreationDate >  DateTime.UtcNow).ToList();
         }
 
         public async Task<IEnumerable<TokenDataModel>?> GetUnclaimedTokensAsync()
         {
-            return await Task.FromResult(new List<TokenDataModel>());
+            return await Task.FromResult(new List<TokenDataModel> 
+            {  
+                new TokenDataModel { Name = "TEst", Description = "Some description of the token here"},
+                new TokenDataModel { Name = "Flower pot meme", Description = "Some description of the flower pot token here"},
+            });
+        }
+    }
+
+    public sealed class Singleton
+    {
+        private Singleton() { }
+        private static Singleton instance = null;
+
+        public static Singleton GetSingleton
+        {
+            get
+            {
+                if (instance == null) instance = new Singleton();
+
+                return new Singleton();
+            }
         }
     }
 }

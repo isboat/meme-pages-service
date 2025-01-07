@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model MemeTokenHub.Service.Web.Models.TokensViewModel
+@{
+	ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
@@ -28,36 +29,26 @@
 	<div class="row">
 		<div class="col-2"></div>
 		<div class="col-4">
-			<ul>
-				<li>
-					<div class="card">
-						<img src="..." class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						</div>
-						<div class="card-body">
-							<a href="#" class="card-link">View site</a>
-						</div>
-					</div>
-				</li>
-			</ul>
+			@if (Model.ClaimedTokens != null && Model.ClaimedTokens.Any())
+			{
+				<ul>
+					@foreach (var token in Model.ClaimedTokens)
+					{
+						<partial name="ClaimedToken" model="token" />
+					}
+				</ul>
+			}
 		</div>
 		<div class="col-4">
-			<ul>
-				<li>
-					<div class="card">
-						<img src="..." class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						</div>
-						<div class="card-body">
-							<a href="#" class="card-link">Claim</a>
-						</div>
-					</div>
-				</li>
-			</ul>
+			@if(Model.UnclaimedTokens != null && Model.UnclaimedTokens.Any())
+			{
+				<ul>
+					@foreach (var token in Model.UnclaimedTokens)
+						{
+							<partial name="UnclaimedToken" model="token" />						
+						}
+				</ul>
+			}
 		</div>
 		<div class="col-2"></div>
 	</div>

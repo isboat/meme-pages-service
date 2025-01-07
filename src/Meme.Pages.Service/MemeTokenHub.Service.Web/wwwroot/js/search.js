@@ -34,7 +34,7 @@ $(document).ready(function(){
                 console.log(response)
 
                 if (response.coins) {
-                    displayList(response.coins, response.coins.length, $(".trending-coins"));
+                    //displayList(response.coins, response.coins.length, $(".trending-coins"));
                 }
                 if (response.nfts) {
                     displayNfts(response.nfts, response.nfts.length, $(".trending-nfts"));

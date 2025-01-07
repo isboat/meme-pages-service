@@ -7,8 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MemeTokenHub.Backoffce.Mongo\MemeTokenHub.Backoffce.Mongo.csproj" />
     <ProjectReference Include="..\MemeTokenHub.Backoffce.Services\MemeTokenHub.Backoffce.Services.csproj" />
+    <ProjectReference Include="..\MemeTokenHub.Service.Models\MemeTokenHub.Service.Models.csproj" />
   </ItemGroup>
 
 </Project>

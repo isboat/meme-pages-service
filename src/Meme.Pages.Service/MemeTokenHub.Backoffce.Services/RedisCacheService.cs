@@ -1,4 +1,5 @@
-﻿using MemeTokenHub.Backoffce.Services.Interfaces;
+﻿using Meme.Domain.Models.Constants;
+using MemeTokenHub.Backoffce.Services.Interfaces;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
@@ -7,7 +8,6 @@ namespace MemeTokenHub.Backoffce.Services
     public class RedisCacheService : IReadonlyCacheService
     {
         private readonly IDatabase _db;
-        private readonly string _sortedSetKey = "mySortedSet";
 
         public RedisCacheService(IConnectionMultiplexer redis)
         {
@@ -17,7 +17,7 @@ namespace MemeTokenHub.Backoffce.Services
         public async Task<List<T>> GetItemsFromList<T>()
         {
             double currentTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            var items = await _db.SortedSetRangeByScoreAsync(_sortedSetKey, 0, currentTimestamp, Exclude.Stop);
+            var items = await _db.SortedSetRangeByScoreAsync(CacheConstants.SortedSetKey, 0, currentTimestamp, Exclude.Stop);
             
             var itemList = new List<T>();
             foreach (var item in items) 

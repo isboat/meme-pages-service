@@ -11,5 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MemeTokenHub.Backoffce.Mongo\MemeTokenHub.Backoffce.Mongo.csproj" />
+    <ProjectReference Include="..\MemeTokenHub.Service.Models\MemeTokenHub.Service.Models.csproj" />
   </ItemGroup>
 </Project>

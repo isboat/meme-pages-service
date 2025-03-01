@@ -14,10 +14,21 @@ namespace MemeTokenHub.Service.Web
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<ITokenService,TokenService>();
             builder.Services.AddSingleton<IReadonlyCacheService, RedisCacheService>();
-
+            builder.Services.AddSingleton<ITemplateService, TemplateService>();
+            
             string connectionString = builder.Configuration.GetConnectionString("Redis");
             var multiplexer = ConnectionMultiplexer.Connect(connectionString!);
             builder.Services.AddSingleton<IConnectionMultiplexer>(multiplexer);
+            
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(options =>
+            {
+                options.Cookie.Name = ".MemeTokenHub.Service.Web.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             var app = builder.Build();
 
@@ -28,6 +39,7 @@ namespace MemeTokenHub.Service.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSession();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

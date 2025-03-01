@@ -1,3 +1,9 @@
 ﻿@{
     Layout = "_Layout";
+
+    var layoutOption = ViewData["Layout"]?.ToString();
+    if(!string.IsNullOrEmpty(layoutOption))
+    {
+        Layout = layoutOption;
+    }
 }

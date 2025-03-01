@@ -34,20 +34,4 @@ namespace MemeTokenHub.Backoffce.Services
             });
         }
     }
-
-    public sealed class Singleton
-    {
-        private Singleton() { }
-        private static Singleton instance = null;
-
-        public static Singleton GetSingleton
-        {
-            get
-            {
-                if (instance == null) instance = new Singleton();
-
-                return new Singleton();
-            }
-        }
-    }
 }

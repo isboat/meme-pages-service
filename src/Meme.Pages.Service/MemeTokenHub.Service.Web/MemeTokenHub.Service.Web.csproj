@@ -16,4 +16,11 @@
     <ProjectReference Include="..\MemeTokenHub.Service.Models\MemeTokenHub.Service.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Shared\_MemeLayout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
